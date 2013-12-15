@@ -1,0 +1,483 @@
+
+R version 3.0.0 (2013-04-03) -- "Masked Marvel"
+Copyright (C) 2013 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin10.8.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.60 (6476) x86_64-apple-darwin10.8.0]
+
+[Workspace restored from /Users/kevin_fox/.RData]
+[History restored from /Users/kevin_fox/.Rapp.history]
+
+'.find.package' is deprecated.
+Use 'find.package' instead.
+See help("Deprecated")
+Loading required package: class
+starting httpd help server ... done
+> FSelector
+Error: object 'FSelector' not found
+> summary(trainData)
+Error in summary(trainData) : object 'trainData' not found
+> setwd("~/Documents/Fall 2013/Practical Data Science/Project/")
+> trainData = read.csv("trainingClean.csv",header=TRUE,sep=",")
+> summary(trainData)
+     RefId          IsBadBuy            PurchDate        Auction         VehYear       VehicleAge           Make                        Model            Trim      
+ Min.   :    1   Min.   :0.00000   11/23/2010:  367   ADESA  :13222   Min.   :2001   Min.   :0.000   CHEVROLET:16532   PT CRUISER          : 2195   Bas    :13299  
+ 1st Qu.:18292   1st Qu.:0.00000   2/25/2009 :  361   MANHEIM:40055   1st Qu.:2004   1st Qu.:3.000   DODGE    :12408   IMPALA              : 1924   LS     : 9766  
+ Median :36467   Median :0.00000   12/8/2010 :  356   OTHER  :16218   Median :2005   Median :4.000   FORD     :10710   TAURUS              : 1372   SE     : 8857  
+ Mean   :36401   Mean   :0.09651   10/13/2010:  349                   Mean   :2005   Mean   :4.167   CHRYSLER : 8327   CALIBER             : 1297   SXT    : 3702  
+ 3rd Qu.:54366   3rd Qu.:0.00000   11/3/2010 :  342                   3rd Qu.:2007   3rd Qu.:5.000   PONTIAC  : 4045   CARAVAN GRAND FWD V6: 1234   LT     : 3413  
+ Max.   :73014   Max.   :1.00000   2/18/2009 :  342                   Max.   :2010   Max.   :9.000   KIA      : 2367   MALIBU 4C           : 1189   LX     : 2235  
+                                   (Other)   :67378                                                  (Other)  :15106   (Other)             :60284   (Other):28223  
+           SubModel         Color       Transmission    WheelTypeID      WheelType         VehOdo               Nationality             Size       TopThreeAmericanName
+ 4D SEDAN      :14414   SILVER :14176         :    1   Min.   :1.000   Alloy  :35894   Min.   :  5368   AMERICAN      :58158   MEDIUM     :29277   CHRYSLER:22292      
+ 4D SEDAN LS   : 4544   WHITE  :11566   AUTO  :66933   1st Qu.:1.000   Covers :32848   1st Qu.: 61838   OTHER         :  189   LARGE      : 8504   FORD    :11674      
+ 4D SEDAN SE   : 3653   BLUE   : 9836   Manual:    1   Median :1.000   Special:  753   Median : 73339   OTHER ASIAN   : 7603   MEDIUM SUV : 7685   GM      :24192      
+ 4D WAGON      : 2114   GREY   : 7534   MANUAL: 2560   Mean   :1.494                   Mean   : 71477   TOP LINE ASIAN: 3545   COMPACT    : 6789   OTHER   :11337      
+ MINIVAN 3.3L  : 1203   BLACK  : 7302                  3rd Qu.:2.000                   3rd Qu.: 82394                          VAN        : 5594                       
+ 4D SUV 4.2L LS: 1138   RED    : 5980                  Max.   :3.000                   Max.   :115717                          LARGE TRUCK: 3048                       
+ (Other)       :42429   (Other):13101                                                                                          (Other)    : 8598                       
+ MMRAcquisitionAuctionAveragePrice MMRAcquisitionAuctionCleanPrice MMRAcquisitionRetailAveragePrice MMRAcquisitonRetailCleanPrice MMRCurrentAuctionAveragePrice
+ Min.   :    0                     Min.   :    0                   Min.   :    0                    Min.   :    0                 Min.   :    0                
+ 1st Qu.: 4297                     1st Qu.: 5432                   1st Qu.: 6320                    1st Qu.: 7524                 1st Qu.: 4300                
+ Median : 6124                     Median : 7335                   Median : 8471                    Median : 9823                 Median : 6088                
+ Mean   : 6147                     Mean   : 7395                   Mean   : 8523                    Mean   : 9880                 Mean   : 6151                
+ 3rd Qu.: 7776                     3rd Qu.: 9040                   3rd Qu.:10674                    3rd Qu.:12115                 3rd Qu.: 7749                
+ Max.   :35722                     Max.   :36859                   Max.   :39080                    Max.   :41482                 Max.   :35722                
+                                                                                                                                                               
+ MMRCurrentAuctionCleanPrice MMRCurrentRetailAveragePrice MMRCurrentRetailCleanPrice PRIMEUNIT     AUCGUART         BYRNO           VNZIP1           VNST          VehBCost    
+ Min.   :    0               Min.   :    0                Min.   :    0              NO  : 3321   GREEN: 3304   Min.   :  835   Min.   : 2764   TX     :13158   Min.   : 1400  
+ 1st Qu.: 5445               1st Qu.: 6570                1st Qu.: 7826              NULL:66112   NULL :66112   1st Qu.:17212   1st Qu.:32124   FL     :10060   1st Qu.: 5455  
+ Median : 7339               Median : 8756                Median :10126              YES :   62   RED  :   79   Median :19662   Median :74135   CA     : 6676   Median : 6725  
+ Mean   : 7412               Mean   : 8802                Mean   :10173                                         Mean   :26319   Mean   :58104   NC     : 6593   Mean   : 6745  
+ 3rd Qu.: 9026               3rd Qu.:10927                3rd Qu.:12331                                         3rd Qu.:22808   3rd Qu.:80022   AZ     : 5941   3rd Qu.: 7900  
+ Max.   :36859               Max.   :39080                Max.   :41062                                         Max.   :99761   Max.   :99224   CO     : 4816   Max.   :38785  
+                                                                                                                                                (Other):22251                  
+  IsOnlineSale      WarrantyCost 
+ Min.   :0.00000   Min.   : 462  
+ 1st Qu.:0.00000   1st Qu.: 837  
+ Median :0.00000   Median :1169  
+ Mean   :0.02482   Mean   :1276  
+ 3rd Qu.:0.00000   3rd Qu.:1623  
+ Max.   :1.00000   Max.   :7498  
+                                 
+> information.gain(formula=IsBadBuy ~ .,trainData)
+                                  attr_importance
+RefId                                1.9195841861
+PurchDate                            0.3327195249
+Auction                              0.2461860811
+VehYear                              0.0277741115
+VehicleAge                           0.0305637649
+Make                                 0.0119020103
+Model                                0.0936138441
+Trim                                 0.0185573914
+SubModel                             0.0686223897
+Color                                0.0047606968
+Transmission                         0.0006105597
+WheelTypeID                          0.0043728903
+WheelType                            0.0047205229
+VehOdo                               0.0169637465
+Nationality                          0.0016853652
+Size                                 0.0096845191
+TopThreeAmericanName                 0.0055291639
+MMRAcquisitionAuctionAveragePrice    0.0130887934
+MMRAcquisitionAuctionCleanPrice      0.0113365072
+MMRAcquisitionRetailAveragePrice     0.0088254660
+MMRAcquisitonRetailCleanPrice        0.0105511598
+MMRCurrentAuctionAveragePrice        0.0115246440
+MMRCurrentAuctionCleanPrice          0.0102643323
+MMRCurrentRetailAveragePrice         0.0106745944
+MMRCurrentRetailCleanPrice           0.0096979334
+PRIMEUNIT                            0.0008570710
+AUCGUART                             0.0010471544
+BYRNO                                0.2768601657
+VNZIP1                               1.5239595126
+VNST                                 0.4573792905
+VehBCost                             0.0184756573
+IsOnlineSale                         0.0013158859
+WarrantyCost                         0.0220279141
+> trainData$IsBadBuy = factor(trainData$IsBadBuy)
+> trainData$IsOnlineSale = factor(trainData$IsOnlineSale)
+> summary(trainData)
+     RefId       IsBadBuy       PurchDate        Auction         VehYear       VehicleAge           Make                        Model            Trim                 SubModel    
+ Min.   :    1   0:62788   11/23/2010:  367   ADESA  :13222   Min.   :2001   Min.   :0.000   CHEVROLET:16532   PT CRUISER          : 2195   Bas    :13299   4D SEDAN      :14414  
+ 1st Qu.:18292   1: 6707   2/25/2009 :  361   MANHEIM:40055   1st Qu.:2004   1st Qu.:3.000   DODGE    :12408   IMPALA              : 1924   LS     : 9766   4D SEDAN LS   : 4544  
+ Median :36467             12/8/2010 :  356   OTHER  :16218   Median :2005   Median :4.000   FORD     :10710   TAURUS              : 1372   SE     : 8857   4D SEDAN SE   : 3653  
+ Mean   :36401             10/13/2010:  349                   Mean   :2005   Mean   :4.167   CHRYSLER : 8327   CALIBER             : 1297   SXT    : 3702   4D WAGON      : 2114  
+ 3rd Qu.:54366             11/3/2010 :  342                   3rd Qu.:2007   3rd Qu.:5.000   PONTIAC  : 4045   CARAVAN GRAND FWD V6: 1234   LT     : 3413   MINIVAN 3.3L  : 1203  
+ Max.   :73014             2/18/2009 :  342                   Max.   :2010   Max.   :9.000   KIA      : 2367   MALIBU 4C           : 1189   LX     : 2235   4D SUV 4.2L LS: 1138  
+                           (Other)   :67378                                                  (Other)  :15106   (Other)             :60284   (Other):28223   (Other)       :42429  
+     Color       Transmission    WheelTypeID      WheelType         VehOdo               Nationality             Size       TopThreeAmericanName MMRAcquisitionAuctionAveragePrice
+ SILVER :14176         :    1   Min.   :1.000   Alloy  :35894   Min.   :  5368   AMERICAN      :58158   MEDIUM     :29277   CHRYSLER:22292       Min.   :    0                    
+ WHITE  :11566   AUTO  :66933   1st Qu.:1.000   Covers :32848   1st Qu.: 61838   OTHER         :  189   LARGE      : 8504   FORD    :11674       1st Qu.: 4297                    
+ BLUE   : 9836   Manual:    1   Median :1.000   Special:  753   Median : 73339   OTHER ASIAN   : 7603   MEDIUM SUV : 7685   GM      :24192       Median : 6124                    
+ GREY   : 7534   MANUAL: 2560   Mean   :1.494                   Mean   : 71477   TOP LINE ASIAN: 3545   COMPACT    : 6789   OTHER   :11337       Mean   : 6147                    
+ BLACK  : 7302                  3rd Qu.:2.000                   3rd Qu.: 82394                          VAN        : 5594                        3rd Qu.: 7776                    
+ RED    : 5980                  Max.   :3.000                   Max.   :115717                          LARGE TRUCK: 3048                        Max.   :35722                    
+ (Other):13101                                                                                          (Other)    : 8598                                                         
+ MMRAcquisitionAuctionCleanPrice MMRAcquisitionRetailAveragePrice MMRAcquisitonRetailCleanPrice MMRCurrentAuctionAveragePrice MMRCurrentAuctionCleanPrice MMRCurrentRetailAveragePrice
+ Min.   :    0                   Min.   :    0                    Min.   :    0                 Min.   :    0                 Min.   :    0               Min.   :    0               
+ 1st Qu.: 5432                   1st Qu.: 6320                    1st Qu.: 7524                 1st Qu.: 4300                 1st Qu.: 5445               1st Qu.: 6570               
+ Median : 7335                   Median : 8471                    Median : 9823                 Median : 6088                 Median : 7339               Median : 8756               
+ Mean   : 7395                   Mean   : 8523                    Mean   : 9880                 Mean   : 6151                 Mean   : 7412               Mean   : 8802               
+ 3rd Qu.: 9040                   3rd Qu.:10674                    3rd Qu.:12115                 3rd Qu.: 7749                 3rd Qu.: 9026               3rd Qu.:10927               
+ Max.   :36859                   Max.   :39080                    Max.   :41482                 Max.   :35722                 Max.   :36859               Max.   :39080               
+                                                                                                                                                                                      
+ MMRCurrentRetailCleanPrice PRIMEUNIT     AUCGUART         BYRNO           VNZIP1           VNST          VehBCost     IsOnlineSale  WarrantyCost 
+ Min.   :    0              NO  : 3321   GREEN: 3304   Min.   :  835   Min.   : 2764   TX     :13158   Min.   : 1400   0:67770      Min.   : 462  
+ 1st Qu.: 7826              NULL:66112   NULL :66112   1st Qu.:17212   1st Qu.:32124   FL     :10060   1st Qu.: 5455   1: 1725      1st Qu.: 837  
+ Median :10126              YES :   62   RED  :   79   Median :19662   Median :74135   CA     : 6676   Median : 6725                Median :1169  
+ Mean   :10173                                         Mean   :26319   Mean   :58104   NC     : 6593   Mean   : 6745                Mean   :1276  
+ 3rd Qu.:12331                                         3rd Qu.:22808   3rd Qu.:80022   AZ     : 5941   3rd Qu.: 7900                3rd Qu.:1623  
+ Max.   :41062                                         Max.   :99761   Max.   :99224   CO     : 4816   Max.   :38785                Max.   :7498  
+                                                                                       (Other):22251                                              
+> trainData$RefId = NULL
+> summary(trainData)
+ IsBadBuy       PurchDate        Auction         VehYear       VehicleAge           Make                        Model            Trim                 SubModel         Color      
+ 0:62788   11/23/2010:  367   ADESA  :13222   Min.   :2001   Min.   :0.000   CHEVROLET:16532   PT CRUISER          : 2195   Bas    :13299   4D SEDAN      :14414   SILVER :14176  
+ 1: 6707   2/25/2009 :  361   MANHEIM:40055   1st Qu.:2004   1st Qu.:3.000   DODGE    :12408   IMPALA              : 1924   LS     : 9766   4D SEDAN LS   : 4544   WHITE  :11566  
+           12/8/2010 :  356   OTHER  :16218   Median :2005   Median :4.000   FORD     :10710   TAURUS              : 1372   SE     : 8857   4D SEDAN SE   : 3653   BLUE   : 9836  
+           10/13/2010:  349                   Mean   :2005   Mean   :4.167   CHRYSLER : 8327   CALIBER             : 1297   SXT    : 3702   4D WAGON      : 2114   GREY   : 7534  
+           11/3/2010 :  342                   3rd Qu.:2007   3rd Qu.:5.000   PONTIAC  : 4045   CARAVAN GRAND FWD V6: 1234   LT     : 3413   MINIVAN 3.3L  : 1203   BLACK  : 7302  
+           2/18/2009 :  342                   Max.   :2010   Max.   :9.000   KIA      : 2367   MALIBU 4C           : 1189   LX     : 2235   4D SUV 4.2L LS: 1138   RED    : 5980  
+           (Other)   :67378                                                  (Other)  :15106   (Other)             :60284   (Other):28223   (Other)       :42429   (Other):13101  
+ Transmission    WheelTypeID      WheelType         VehOdo               Nationality             Size       TopThreeAmericanName MMRAcquisitionAuctionAveragePrice
+       :    1   Min.   :1.000   Alloy  :35894   Min.   :  5368   AMERICAN      :58158   MEDIUM     :29277   CHRYSLER:22292       Min.   :    0                    
+ AUTO  :66933   1st Qu.:1.000   Covers :32848   1st Qu.: 61838   OTHER         :  189   LARGE      : 8504   FORD    :11674       1st Qu.: 4297                    
+ Manual:    1   Median :1.000   Special:  753   Median : 73339   OTHER ASIAN   : 7603   MEDIUM SUV : 7685   GM      :24192       Median : 6124                    
+ MANUAL: 2560   Mean   :1.494                   Mean   : 71477   TOP LINE ASIAN: 3545   COMPACT    : 6789   OTHER   :11337       Mean   : 6147                    
+                3rd Qu.:2.000                   3rd Qu.: 82394                          VAN        : 5594                        3rd Qu.: 7776                    
+                Max.   :3.000                   Max.   :115717                          LARGE TRUCK: 3048                        Max.   :35722                    
+                                                                                        (Other)    : 8598                                                         
+ MMRAcquisitionAuctionCleanPrice MMRAcquisitionRetailAveragePrice MMRAcquisitonRetailCleanPrice MMRCurrentAuctionAveragePrice MMRCurrentAuctionCleanPrice MMRCurrentRetailAveragePrice
+ Min.   :    0                   Min.   :    0                    Min.   :    0                 Min.   :    0                 Min.   :    0               Min.   :    0               
+ 1st Qu.: 5432                   1st Qu.: 6320                    1st Qu.: 7524                 1st Qu.: 4300                 1st Qu.: 5445               1st Qu.: 6570               
+ Median : 7335                   Median : 8471                    Median : 9823                 Median : 6088                 Median : 7339               Median : 8756               
+ Mean   : 7395                   Mean   : 8523                    Mean   : 9880                 Mean   : 6151                 Mean   : 7412               Mean   : 8802               
+ 3rd Qu.: 9040                   3rd Qu.:10674                    3rd Qu.:12115                 3rd Qu.: 7749                 3rd Qu.: 9026               3rd Qu.:10927               
+ Max.   :36859                   Max.   :39080                    Max.   :41482                 Max.   :35722                 Max.   :36859               Max.   :39080               
+                                                                                                                                                                                      
+ MMRCurrentRetailCleanPrice PRIMEUNIT     AUCGUART         BYRNO           VNZIP1           VNST          VehBCost     IsOnlineSale  WarrantyCost 
+ Min.   :    0              NO  : 3321   GREEN: 3304   Min.   :  835   Min.   : 2764   TX     :13158   Min.   : 1400   0:67770      Min.   : 462  
+ 1st Qu.: 7826              NULL:66112   NULL :66112   1st Qu.:17212   1st Qu.:32124   FL     :10060   1st Qu.: 5455   1: 1725      1st Qu.: 837  
+ Median :10126              YES :   62   RED  :   79   Median :19662   Median :74135   CA     : 6676   Median : 6725                Median :1169  
+ Mean   :10173                                         Mean   :26319   Mean   :58104   NC     : 6593   Mean   : 6745                Mean   :1276  
+ 3rd Qu.:12331                                         3rd Qu.:22808   3rd Qu.:80022   AZ     : 5941   3rd Qu.: 7900                3rd Qu.:1623  
+ Max.   :41062                                         Max.   :99761   Max.   :99224   CO     : 4816   Max.   :38785                Max.   :7498  
+                                                                                       (Other):22251                                              
+> trainData$WheelTypeID = factor(trainData$WheelTypeID)
+> summary(trainData)
+ IsBadBuy       PurchDate        Auction         VehYear       VehicleAge           Make                        Model            Trim                 SubModel         Color      
+ 0:62788   11/23/2010:  367   ADESA  :13222   Min.   :2001   Min.   :0.000   CHEVROLET:16532   PT CRUISER          : 2195   Bas    :13299   4D SEDAN      :14414   SILVER :14176  
+ 1: 6707   2/25/2009 :  361   MANHEIM:40055   1st Qu.:2004   1st Qu.:3.000   DODGE    :12408   IMPALA              : 1924   LS     : 9766   4D SEDAN LS   : 4544   WHITE  :11566  
+           12/8/2010 :  356   OTHER  :16218   Median :2005   Median :4.000   FORD     :10710   TAURUS              : 1372   SE     : 8857   4D SEDAN SE   : 3653   BLUE   : 9836  
+           10/13/2010:  349                   Mean   :2005   Mean   :4.167   CHRYSLER : 8327   CALIBER             : 1297   SXT    : 3702   4D WAGON      : 2114   GREY   : 7534  
+           11/3/2010 :  342                   3rd Qu.:2007   3rd Qu.:5.000   PONTIAC  : 4045   CARAVAN GRAND FWD V6: 1234   LT     : 3413   MINIVAN 3.3L  : 1203   BLACK  : 7302  
+           2/18/2009 :  342                   Max.   :2010   Max.   :9.000   KIA      : 2367   MALIBU 4C           : 1189   LX     : 2235   4D SUV 4.2L LS: 1138   RED    : 5980  
+           (Other)   :67378                                                  (Other)  :15106   (Other)             :60284   (Other):28223   (Other)       :42429   (Other):13101  
+ Transmission   WheelTypeID   WheelType         VehOdo               Nationality             Size       TopThreeAmericanName MMRAcquisitionAuctionAveragePrice
+       :    1   1:35894     Alloy  :35894   Min.   :  5368   AMERICAN      :58158   MEDIUM     :29277   CHRYSLER:22292       Min.   :    0                    
+ AUTO  :66933   2:32848     Covers :32848   1st Qu.: 61838   OTHER         :  189   LARGE      : 8504   FORD    :11674       1st Qu.: 4297                    
+ Manual:    1   3:  753     Special:  753   Median : 73339   OTHER ASIAN   : 7603   MEDIUM SUV : 7685   GM      :24192       Median : 6124                    
+ MANUAL: 2560                               Mean   : 71477   TOP LINE ASIAN: 3545   COMPACT    : 6789   OTHER   :11337       Mean   : 6147                    
+                                            3rd Qu.: 82394                          VAN        : 5594                        3rd Qu.: 7776                    
+                                            Max.   :115717                          LARGE TRUCK: 3048                        Max.   :35722                    
+                                                                                    (Other)    : 8598                                                         
+ MMRAcquisitionAuctionCleanPrice MMRAcquisitionRetailAveragePrice MMRAcquisitonRetailCleanPrice MMRCurrentAuctionAveragePrice MMRCurrentAuctionCleanPrice MMRCurrentRetailAveragePrice
+ Min.   :    0                   Min.   :    0                    Min.   :    0                 Min.   :    0                 Min.   :    0               Min.   :    0               
+ 1st Qu.: 5432                   1st Qu.: 6320                    1st Qu.: 7524                 1st Qu.: 4300                 1st Qu.: 5445               1st Qu.: 6570               
+ Median : 7335                   Median : 8471                    Median : 9823                 Median : 6088                 Median : 7339               Median : 8756               
+ Mean   : 7395                   Mean   : 8523                    Mean   : 9880                 Mean   : 6151                 Mean   : 7412               Mean   : 8802               
+ 3rd Qu.: 9040                   3rd Qu.:10674                    3rd Qu.:12115                 3rd Qu.: 7749                 3rd Qu.: 9026               3rd Qu.:10927               
+ Max.   :36859                   Max.   :39080                    Max.   :41482                 Max.   :35722                 Max.   :36859               Max.   :39080               
+                                                                                                                                                                                      
+ MMRCurrentRetailCleanPrice PRIMEUNIT     AUCGUART         BYRNO           VNZIP1           VNST          VehBCost     IsOnlineSale  WarrantyCost 
+ Min.   :    0              NO  : 3321   GREEN: 3304   Min.   :  835   Min.   : 2764   TX     :13158   Min.   : 1400   0:67770      Min.   : 462  
+ 1st Qu.: 7826              NULL:66112   NULL :66112   1st Qu.:17212   1st Qu.:32124   FL     :10060   1st Qu.: 5455   1: 1725      1st Qu.: 837  
+ Median :10126              YES :   62   RED  :   79   Median :19662   Median :74135   CA     : 6676   Median : 6725                Median :1169  
+ Mean   :10173                                         Mean   :26319   Mean   :58104   NC     : 6593   Mean   : 6745                Mean   :1276  
+ 3rd Qu.:12331                                         3rd Qu.:22808   3rd Qu.:80022   AZ     : 5941   3rd Qu.: 7900                3rd Qu.:1623  
+ Max.   :41062                                         Max.   :99761   Max.   :99224   CO     : 4816   Max.   :38785                Max.   :7498  
+                                                                                       (Other):22251                                              
+> IGWeights = information.gain(formula=IsBadBuy ~ .,trainData)
+> print(IGWeights)
+                                  attr_importance
+PurchDate                            9.897030e-03
+Auction                              2.399689e-03
+VehYear                              1.811344e-02
+VehicleAge                           2.003749e-02
+Make                                 4.265368e-03
+Model                                3.146201e-02
+Trim                                 6.986927e-03
+SubModel                             2.276938e-02
+Color                                5.244485e-04
+Transmission                         1.227176e-04
+WheelTypeID                          1.996296e-03
+WheelType                            1.996296e-03
+VehOdo                               6.184678e-03
+Nationality                          5.722606e-05
+Size                                 2.748243e-03
+TopThreeAmericanName                 1.987714e-03
+MMRAcquisitionAuctionAveragePrice    1.346218e-02
+MMRAcquisitionAuctionCleanPrice      1.303987e-02
+MMRAcquisitionRetailAveragePrice     8.416582e-03
+MMRAcquisitonRetailCleanPrice        8.201464e-03
+MMRCurrentAuctionAveragePrice        1.328837e-02
+MMRCurrentAuctionCleanPrice          1.258713e-02
+MMRCurrentRetailAveragePrice         9.843278e-03
+MMRCurrentRetailCleanPrice           9.160394e-03
+PRIMEUNIT                            1.791517e-03
+AUCGUART                             1.811089e-03
+BYRNO                                6.096355e-03
+VNZIP1                               5.289010e-03
+VNST                                 3.430773e-03
+VehBCost                             1.250219e-02
+IsOnlineSale                         4.436735e-05
+WarrantyCost                         7.718167e-03
+> LinCorWeights = linear.correlation(formula=IsBadBuy ~ .,trainData)
+Error in FUN(X[[1L]], ...) : All data must be continous.
+> GRWeights = gain.ratio(formula=IsBadBuy ~ .,trainData)
+> print(GRWeights)
+                                  attr_importance
+PurchDate                            1.135998e-03
+Auction                              1.709714e-03
+VehYear                              7.870469e-03
+VehicleAge                           7.293917e-03
+Make                                 1.246588e-03
+Model                                3.972715e-03
+Trim                                 1.545155e-03
+SubModel                             3.519573e-03
+Color                                1.634051e-04
+Transmission                         5.379971e-04
+WheelTypeID                          1.858672e-03
+WheelType                            1.858672e-03
+VehOdo                               3.434625e-03
+Nationality                          7.096198e-05
+Size                                 1.000717e-03
+TopThreeAmericanName                 1.037859e-03
+MMRAcquisitionAuctionAveragePrice    6.593306e-03
+MMRAcquisitionAuctionCleanPrice      6.543034e-03
+MMRAcquisitionRetailAveragePrice     4.645376e-03
+MMRAcquisitonRetailCleanPrice        4.408606e-03
+MMRCurrentAuctionAveragePrice        6.455237e-03
+MMRCurrentAuctionCleanPrice          6.297103e-03
+MMRCurrentRetailAveragePrice         5.222236e-03
+MMRCurrentRetailCleanPrice           4.724445e-03
+PRIMEUNIT                            6.238201e-03
+AUCGUART                             6.276640e-03
+BYRNO                                3.771584e-03
+VNZIP1                               2.489659e-03
+VNST                                 8.810957e-04
+VehBCost                             6.941748e-03
+IsOnlineSale                         2.645341e-04
+WarrantyCost                         3.478685e-03
+> GRWeights[order(GRWeights$attr_importance),]
+ [1] 7.096198e-05 1.634051e-04 2.645341e-04 5.379971e-04 8.810957e-04 1.000717e-03 1.037859e-03 1.135998e-03 1.246588e-03 1.545155e-03 1.709714e-03 1.858672e-03 1.858672e-03
+[14] 2.489659e-03 3.434625e-03 3.478685e-03 3.519573e-03 3.771584e-03 3.972715e-03 4.408606e-03 4.645376e-03 4.724445e-03 5.222236e-03 6.238201e-03 6.276640e-03 6.297103e-03
+[27] 6.455237e-03 6.543034e-03 6.593306e-03 6.941748e-03 7.293917e-03 7.870469e-03
+> print(GRWeights)
+                                  attr_importance
+PurchDate                            1.135998e-03
+Auction                              1.709714e-03
+VehYear                              7.870469e-03
+VehicleAge                           7.293917e-03
+Make                                 1.246588e-03
+Model                                3.972715e-03
+Trim                                 1.545155e-03
+SubModel                             3.519573e-03
+Color                                1.634051e-04
+Transmission                         5.379971e-04
+WheelTypeID                          1.858672e-03
+WheelType                            1.858672e-03
+VehOdo                               3.434625e-03
+Nationality                          7.096198e-05
+Size                                 1.000717e-03
+TopThreeAmericanName                 1.037859e-03
+MMRAcquisitionAuctionAveragePrice    6.593306e-03
+MMRAcquisitionAuctionCleanPrice      6.543034e-03
+MMRAcquisitionRetailAveragePrice     4.645376e-03
+MMRAcquisitonRetailCleanPrice        4.408606e-03
+MMRCurrentAuctionAveragePrice        6.455237e-03
+MMRCurrentAuctionCleanPrice          6.297103e-03
+MMRCurrentRetailAveragePrice         5.222236e-03
+MMRCurrentRetailCleanPrice           4.724445e-03
+PRIMEUNIT                            6.238201e-03
+AUCGUART                             6.276640e-03
+BYRNO                                3.771584e-03
+VNZIP1                               2.489659e-03
+VNST                                 8.810957e-04
+VehBCost                             6.941748e-03
+IsOnlineSale                         2.645341e-04
+WarrantyCost                         3.478685e-03
+> order(GRWeights$attr_importance)
+ [1] 14  9 31 10 29 15 16  1  5  7  2 11 12 28 13 32  8 27  6 20 19 24 23 25 26 22 21 18 17 30  4  3
+> order(GRWeights$attr_importance,decreasing=TRUE)
+ [1]  3  4 30 17 18 21 22 26 25 23 24 19 20  6 27  8 32 13 28 11 12  2  7  5  1 16 15 29 10 31  9 14
+> GRWeightsUpdated = order(GRWeights$attr_importance,decreasing=TRUE)
+> print(GRWeightsUpdated)
+ [1]  3  4 30 17 18 21 22 26 25 23 24 19 20  6 27  8 32 13 28 11 12  2  7  5  1 16 15 29 10 31  9 14
+> GRWeightsUpdated = GRWeights[order(GRWeights$attr_importance,decreasing=TRUE),]
+> print(GRWeightsUpdated)
+ [1] 7.870469e-03 7.293917e-03 6.941748e-03 6.593306e-03 6.543034e-03 6.455237e-03 6.297103e-03 6.276640e-03 6.238201e-03 5.222236e-03 4.724445e-03 4.645376e-03 4.408606e-03
+[14] 3.972715e-03 3.771584e-03 3.519573e-03 3.478685e-03 3.434625e-03 2.489659e-03 1.858672e-03 1.858672e-03 1.709714e-03 1.545155e-03 1.246588e-03 1.135998e-03 1.037859e-03
+[27] 1.000717e-03 8.810957e-04 5.379971e-04 2.645341e-04 1.634051e-04 7.096198e-05
+> print(GRWeights)
+                                  attr_importance
+PurchDate                            1.135998e-03
+Auction                              1.709714e-03
+VehYear                              7.870469e-03
+VehicleAge                           7.293917e-03
+Make                                 1.246588e-03
+Model                                3.972715e-03
+Trim                                 1.545155e-03
+SubModel                             3.519573e-03
+Color                                1.634051e-04
+Transmission                         5.379971e-04
+WheelTypeID                          1.858672e-03
+WheelType                            1.858672e-03
+VehOdo                               3.434625e-03
+Nationality                          7.096198e-05
+Size                                 1.000717e-03
+TopThreeAmericanName                 1.037859e-03
+MMRAcquisitionAuctionAveragePrice    6.593306e-03
+MMRAcquisitionAuctionCleanPrice      6.543034e-03
+MMRAcquisitionRetailAveragePrice     4.645376e-03
+MMRAcquisitonRetailCleanPrice        4.408606e-03
+MMRCurrentAuctionAveragePrice        6.455237e-03
+MMRCurrentAuctionCleanPrice          6.297103e-03
+MMRCurrentRetailAveragePrice         5.222236e-03
+MMRCurrentRetailCleanPrice           4.724445e-03
+PRIMEUNIT                            6.238201e-03
+AUCGUART                             6.276640e-03
+BYRNO                                3.771584e-03
+VNZIP1                               2.489659e-03
+VNST                                 8.810957e-04
+VehBCost                             6.941748e-03
+IsOnlineSale                         2.645341e-04
+WarrantyCost                         3.478685e-03
+> GRWeights2 = data.frame(name=0,importance=attr_importance)
+Error in data.frame(name = 0, importance = attr_importance) : 
+  object 'attr_importance' not found
+> GRWeights2 = data.frame(name=0,importance=1)
+> print(GRWeights2)
+  name importance
+1    0          1
+> GRWeightsUpdated = GRWeights[order(GRWeights$attr_importance,decreasing=TRUE), ,drop=FALSE]
+> print(GRWeightsUpdated)
+                                  attr_importance
+VehYear                              7.870469e-03
+VehicleAge                           7.293917e-03
+VehBCost                             6.941748e-03
+MMRAcquisitionAuctionAveragePrice    6.593306e-03
+MMRAcquisitionAuctionCleanPrice      6.543034e-03
+MMRCurrentAuctionAveragePrice        6.455237e-03
+MMRCurrentAuctionCleanPrice          6.297103e-03
+AUCGUART                             6.276640e-03
+PRIMEUNIT                            6.238201e-03
+MMRCurrentRetailAveragePrice         5.222236e-03
+MMRCurrentRetailCleanPrice           4.724445e-03
+MMRAcquisitionRetailAveragePrice     4.645376e-03
+MMRAcquisitonRetailCleanPrice        4.408606e-03
+Model                                3.972715e-03
+BYRNO                                3.771584e-03
+SubModel                             3.519573e-03
+WarrantyCost                         3.478685e-03
+VehOdo                               3.434625e-03
+VNZIP1                               2.489659e-03
+WheelTypeID                          1.858672e-03
+WheelType                            1.858672e-03
+Auction                              1.709714e-03
+Trim                                 1.545155e-03
+Make                                 1.246588e-03
+PurchDate                            1.135998e-03
+TopThreeAmericanName                 1.037859e-03
+Size                                 1.000717e-03
+VNST                                 8.810957e-04
+Transmission                         5.379971e-04
+IsOnlineSale                         2.645341e-04
+Color                                1.634051e-04
+Nationality                          7.096198e-05
+> GRWeights = GRWeights[order(GRWeights$attr_importance,decreasing=TRUE), ,drop=FALSE]
+> IGWeights = IGWeights[order(IGWeights$attr_importance,decreasing=TRUE), ,drop=FALSE]
+> print(IGWeights)
+                                  attr_importance
+Model                                3.146201e-02
+SubModel                             2.276938e-02
+VehicleAge                           2.003749e-02
+VehYear                              1.811344e-02
+MMRAcquisitionAuctionAveragePrice    1.346218e-02
+MMRCurrentAuctionAveragePrice        1.328837e-02
+MMRAcquisitionAuctionCleanPrice      1.303987e-02
+MMRCurrentAuctionCleanPrice          1.258713e-02
+VehBCost                             1.250219e-02
+PurchDate                            9.897030e-03
+MMRCurrentRetailAveragePrice         9.843278e-03
+MMRCurrentRetailCleanPrice           9.160394e-03
+MMRAcquisitionRetailAveragePrice     8.416582e-03
+MMRAcquisitonRetailCleanPrice        8.201464e-03
+WarrantyCost                         7.718167e-03
+Trim                                 6.986927e-03
+VehOdo                               6.184678e-03
+BYRNO                                6.096355e-03
+VNZIP1                               5.289010e-03
+Make                                 4.265368e-03
+VNST                                 3.430773e-03
+Size                                 2.748243e-03
+Auction                              2.399689e-03
+WheelTypeID                          1.996296e-03
+WheelType                            1.996296e-03
+TopThreeAmericanName                 1.987714e-03
+AUCGUART                             1.811089e-03
+PRIMEUNIT                            1.791517e-03
+Color                                5.244485e-04
+Transmission                         1.227176e-04
+Nationality                          5.722606e-05
+IsOnlineSale                         4.436735e-05
+> print(GRWeights)
+                                  attr_importance
+VehYear                              7.870469e-03
+VehicleAge                           7.293917e-03
+VehBCost                             6.941748e-03
+MMRAcquisitionAuctionAveragePrice    6.593306e-03
+MMRAcquisitionAuctionCleanPrice      6.543034e-03
+MMRCurrentAuctionAveragePrice        6.455237e-03
+MMRCurrentAuctionCleanPrice          6.297103e-03
+AUCGUART                             6.276640e-03
+PRIMEUNIT                            6.238201e-03
+MMRCurrentRetailAveragePrice         5.222236e-03
+MMRCurrentRetailCleanPrice           4.724445e-03
+MMRAcquisitionRetailAveragePrice     4.645376e-03
+MMRAcquisitonRetailCleanPrice        4.408606e-03
+Model                                3.972715e-03
+BYRNO                                3.771584e-03
+SubModel                             3.519573e-03
+WarrantyCost                         3.478685e-03
+VehOdo                               3.434625e-03
+VNZIP1                               2.489659e-03
+WheelTypeID                          1.858672e-03
+WheelType                            1.858672e-03
+Auction                              1.709714e-03
+Trim                                 1.545155e-03
+Make                                 1.246588e-03
+PurchDate                            1.135998e-03
+TopThreeAmericanName                 1.037859e-03
+Size                                 1.000717e-03
+VNST                                 8.810957e-04
+Transmission                         5.379971e-04
+IsOnlineSale                         2.645341e-04
+Color                                1.634051e-04
+Nationality                          7.096198e-05
+> 

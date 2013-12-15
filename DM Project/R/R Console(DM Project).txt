@@ -1,0 +1,93 @@
+
+R version 2.15.2 (2012-10-26) -- "Trick or Treat"
+Copyright (C) 2012 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: i386-apple-darwin9.8.0/i386 (32-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[R.app GUI 1.53 (6335) i386-apple-darwin9.8.0]
+
+[Workspace restored from /Users/kevin_fox/.RData]
+[History restored from /Users/kevin_fox/.Rapp.history]
+
+> summary(train_data)
+    IsBadBuy       VehicleAge      WheelType     DifAquiredAvg_CurAvgAuction DifAquiredAboveAvg_CurAboveAvgRetail DifAquiredAvg_CurAvgRetail
+ Min.   :0.000   Min.   :0.000   Alloy  :35639   Min.   :-8928.000           Min.   :-13037.0                     Min.   :-12629.0          
+ 1st Qu.:0.000   1st Qu.:3.000   Covers :32639   1st Qu.:  -68.000           1st Qu.:  -161.0                     1st Qu.:  -135.0          
+ Median :0.000   Median :4.000   NULL   : 3145   Median :    0.000           Median :     0.0                     Median :     0.0          
+ Mean   :0.123   Mean   :4.182   Special:  741   Mean   :   -6.007           Mean   :  -113.4                     Mean   :  -107.4          
+ 3rd Qu.:0.000   3rd Qu.:5.000                   3rd Qu.:   84.000           3rd Qu.:    78.0                     3rd Qu.:    71.0          
+ Max.   :1.000   Max.   :9.000                   Max.   : 6278.000           Max.   :  6690.0                     Max.   :  6781.0          
+ DifAquiredAboveAvg_CurAboveAvgAuction    AdjVehOd     
+ Min.   :-9280.00                      Min.   :   894  
+ 1st Qu.:  -82.00                      1st Qu.: 13607  
+ Median :    0.00                      Median : 17784  
+ Mean   :  -11.88                      Mean   : 20422  
+ 3rd Qu.:   89.00                      3rd Qu.: 24026  
+ Max.   : 6194.00                      Max.   :103373  
+> train_data$IsBadBuy<- factor(train_data$IsBadBuy)
+> predict1 <- glm(IsBadBuy~.,na.action=na.pass,family=binomial(probit=link))
+Error in binomial(probit = link) : unused argument(s) (probit = link)
+> predict1 <- glm(IsBadBuy~.,na.action=na.pass,family=binomial(link=probit), train_data)
+> summary(predict1)
+
+Call:
+glm(formula = IsBadBuy ~ ., family = binomial(link = probit), 
+    data = train_data, na.action = na.pass)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-2.1725  -0.4899  -0.4040  -0.3173   3.2175  
+
+Coefficients:
+                                        Estimate Std. Error z value Pr(>|z|)    
+(Intercept)                           -2.079e+00  4.729e-02 -43.953  < 2e-16 ***
+VehicleAge                             1.668e-01  5.978e-03  27.905  < 2e-16 ***
+WheelTypeCovers                       -3.834e-02  1.415e-02  -2.709  0.00675 ** 
+WheelTypeNULL                          1.845e+00  2.577e-02  71.596  < 2e-16 ***
+WheelTypeSpecial                       8.184e-02  5.981e-02   1.368  0.17119    
+DifAquiredAvg_CurAvgAuction           -3.408e-04  1.213e-04  -2.808  0.00498 ** 
+DifAquiredAboveAvg_CurAboveAvgRetail   6.053e-05  7.150e-05   0.847  0.39724    
+DifAquiredAvg_CurAvgRetail             1.494e-04  7.533e-05   1.983  0.04742 *  
+DifAquiredAboveAvg_CurAboveAvgAuction  1.147e-04  1.096e-04   1.047  0.29527    
+AdjVehOd                               3.187e-06  1.132e-06   2.815  0.00488 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 53821  on 72163  degrees of freedom
+Residual deviance: 45558  on 72154  degrees of freedom
+AIC: 45578
+
+Number of Fisher Scoring iterations: 5
+
+> LogModel <- glm(IsBadBuy~.,na.action=na.pass,family=binomial(link=probit), train_data)
+> predict <- predict(LogModel,test_data, type="response")
+> summary(predict)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+ 0.0034  0.0622  0.0865  0.1249  0.1269  0.9048     373 
+> x=73015
+> > write.csv(predict,"preiction1.csv",row.names=x+1)
+Error: unexpected '>' in ">"
+>  write.csv(predict,"preiction1.csv",row.names=x+1)
+Error in write.table(predict, "preiction1.csv", row.names = x + 1, col.names = NA,  : 
+  invalid 'row.names' specification
+> write.csv(predict,"preiction1.csv",row.names=x)
+Error in write.table(predict, "preiction1.csv", row.names = x, col.names = NA,  : 
+  invalid 'row.names' specification
+> write.csv(predict,"preiction1.csv",row.names=TRUE)
+> 
